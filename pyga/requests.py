@@ -6,7 +6,10 @@ from math import floor
 from pyga.entities import Campaign, CustomVariable, Event, Item, Page, Session, SocialInteraction, Transaction, Visitor
 import pyga.utils as utils
 import urllib
-import urllib2
+try:
+    import urllib2
+except ImportError:
+    import urllib.request
 
 __author__ = "Arun KR (kra3) <the1.arun@gmail.com>"
 __license__ = "Simplified BSD"

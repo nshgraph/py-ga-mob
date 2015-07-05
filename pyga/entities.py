@@ -2,8 +2,12 @@
 
 from datetime import datetime
 from operator import itemgetter
-from urlparse import urlparse
-from urllib import unquote_plus
+try: #python2
+    from urlparse import urlparse
+    from urllib import unquote_plus
+except ImportError: #python3
+    from urllib.parse import unquote_plus, urlparse
+
 from pyga import utils
 from pyga import exceptions
 
