@@ -6,10 +6,15 @@ class TestGA(unittest.TestCase):
     def test_request(self):
         from pyga.requests import Tracker, Visitor, Session, Page
         from mock import Mock
-        from urlparse import urlparse, parse_qs
-        import urllib2
+        try: #python 2
+            from urlparse import urlparse, parse_qs
+            from urllib2 import urlopen
+        except ImportError: #python 3
+            from urllib.parse import urlparse, parse_qs
+            from urllib.request import urlopen
 
-        mocked = urllib2.urlopen = Mock()
+
+        mocked = urlopen = Mock()
 
         meta = dict(
             REMOTE_ADDR='134.321.0.1',

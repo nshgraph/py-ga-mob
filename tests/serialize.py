@@ -1,5 +1,8 @@
 import unittest
-from cPickle import loads, dumps
+try:
+    from cPickle import loads, dumps
+except ImportError:
+    from pickle import loads, dumps
 
 
 class TestSerialize(unittest.TestCase):
